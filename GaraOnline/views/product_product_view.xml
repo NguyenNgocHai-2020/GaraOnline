@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="Product_product_tree_view" model="ir.ui.view">
+        <field name="name">Product.product.tree.view</field>
+        <field name="model">product.product.card</field>
+        <field name="arch" type="xml">
+            <tree string="Product Variants">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="price"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="Product_product_form_view" model="ir.ui.view">
+        <field name="name">Product.product.form.view</field>
+        <field name="model">product.product.card</field>
+        <field name="arch" type="xml">
+            <form string="Product Variants Form">
+                <header>
+                    <button name="sold_out_product_variants"
+                            string="Bán"
+                            type="object" class="oe_highlight"
+                            states="available"
+                            group='group_collaborators_user'
+                    />
+                    <field name="state" widget="statusbar" statusbar_visible="available,sold"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="qr_code" widget="image" class="oe_avatar"/>
+                        <field name="price"/>
+                        <field name="commission"/>
+                        <field name="users_ids"/>
+                    </group>
+<!--                    <div class="oe_chatter">-->
+<!--                        <field name="message_follower_ids" widget="mail_followers"/>-->
+<!--                        <field name="activity_ids" widget="mail_activity"/>-->
+<!--                        <field name="message_ids" widget="mail_thread"-->
+<!--                               options="{'post_refresh': 'recipients'}"/>-->
+<!--                    </div>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

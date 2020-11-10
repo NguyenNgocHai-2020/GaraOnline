@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_action_window" model="ir.actions.act_window">
+        <field name="name">Sản phẩm</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template.card</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="product_product_action_window" model="ir.actions.act_window">
+        <field name="name">Sản phẩm biến thể</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.product.card</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="res_users_action_window" model="ir.actions.act_window">
+        <field name="name">Nhà phân phối</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+<!--    <record id="sale_manage_action_window" model="ir.actions.act_window">-->
+<!--        <field name="name">Lead</field>-->
+<!--        <field name="type">ir.actions.act_window</field>-->
+<!--        <field name="res_model">sale.manage</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+    <record id="action_open_inbound_product" model="ir.actions.act_window">
+        <field name="name">Open inbound product</field>
+        <field name="res_model">inbound.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <!--            <field name="view_id" ref="view_open_payment"/>-->
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="sale_manage" name="Gara Online" sequence="1"/>
+<!--    <menuitem id="sale_manage_menu_item" name="Lead" parent="sale_manage" action="sale_manage_action_window"/>-->
+    <menuitem id="inherit_pos_config_menu_catalog" name="Sản phẩm" parent="sale_manage"/>
+    <menuitem id="inherit_menu_pos_products" action="product_action_window" parent="inherit_pos_config_menu_catalog"/>
+    <menuitem id="inherit_pos_config_menu_action_product_product" name="Product Variants"
+              parent="inherit_pos_config_menu_catalog" action="product_product_action_window"/>
+    <menuitem id="employee_menu_item" name="Nhà phân phối" parent="sale_manage" action="res_users_action_window"/>
+
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+user_access_product_variants,user_access_product_variants,sale_manage.model_product_product_card,sale_manage.group_collaborators_user,1,1,0,0

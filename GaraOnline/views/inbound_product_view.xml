@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_open_inbound_product" model="ir.ui.view">
+            <field name="name">Get payment</field>
+            <field name="model">inbound.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" required="1"/>
+                                <field name="product" readonly="True" force_save="1" options="{'no_open': True}"/>
+                                <field name="in_bound_amount" required="1"/>
+                                <field name="notes"/>
+                                <field name="payment_date"/>
+                            </group>
+<!--                            <group>-->
+<!--                                <field name="payment_date"/>-->
+<!--                                <field name="rank_id" readonly="True" force_save="1" options="{'no_open': True}"/>-->
+<!--                                <field name="location_id" required="1"-->
+<!--                                       options="{'no_open': True, 'no_create': True}"/>-->
+<!--                                <field name="booking" required="1"/>-->
+<!--                                <field name="loyalty_id" readonly="True" force_save="True" options="{'no_open': True}"/>-->
+<!--                            </group>-->
+                        </group>
+                    </sheet>
+<!--                    <footer class="text-center">-->
+<!--                        <button type="object" string="Nhập kho" name="create_inbound_payment()" class="oe_highlight"/>-->
+<!--                        <button special="cancel" class="oe_highlight" string="Cancel"/>-->
+<!--                    </footer>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="action_open_inbound_product" model="ir.actions.act_window">
+            <field name="name">Open inbound product</field>
+            <field name="res_model">inbound.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_open_inbound_product"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

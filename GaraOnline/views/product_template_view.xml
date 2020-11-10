@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="Product_template_tree_view" model="ir.ui.view">
+        <field name="name">Product.template.tree.view</field>
+        <field name="model">product.template.card</field>
+        <field name="arch" type="xml">
+            <tree string="Product">
+                <field name="name"/>
+                <field name="product_default_code"/>
+                <field name="amount"/>
+                <field name="qty_product_in_stock"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="Product_template_form_view" model="ir.ui.view">
+        <field name="name">Product.template.form.view</field>
+        <field name="model">product.template.card</field>
+        <field name="arch" type="xml">
+            <form string="Product Form">
+                <header>
+                    <button name="%(sale_manage.action_open_inbound_product)d" string="Nhập kho" type="action"
+                                context="{'default_product':active_id,
+                                }" class="btn-success"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="product_default_code"/>
+                        <field name="amount"/>
+                        <field name="qty_product_in_stock"/>
+                        <field name="price"/>
+                        <field name="product_variants">
+                            <tree>
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="state"/>
+                                <field name="users_ids"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

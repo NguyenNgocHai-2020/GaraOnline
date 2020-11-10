@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="employee_form_view" model="ir.ui.view">
+        <field name="name">Employee</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="replace">
+                <group>
+                    <field name="password"/>
+                    <field name="regency"/>
+                    <field name="mobile"/>
+                    <field name="street"/>
+                    <field name="product_template_ids" widget="many2many_tags"/>
+                    <field name="amount_received"/>
+                    <field name="product_product_ids" widget="many2many" domain="[('state', '=', 'available'),('users_ids', '=', False)]"/>
+                    <field name="product_amount_used"/>
+                    <field name="commission_total"/>
+                    <field name="groups_id"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="employee_tree_view" model="ir.ui.view">
+        <field name="name">Employee</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="regency"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
